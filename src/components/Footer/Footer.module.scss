@@ -1,0 +1,21 @@
+@import '../../scss/config';
+
+.container {
+  background-color: $light;
+
+  .linksContainer {
+    flex-wrap: wrap;
+
+    .link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media screen and (max-width: $break-xs) {
+    & {
+      padding: 1.25rem .75rem;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import '../../../scss/config';
+
+.menu {
+  outline: none;
+
+  .icon {
+    width: 12px;
+    height: 12px;
+    transition: transform .25s ease;
+  }
+
+  .itemsContainer {
+    width: max-content;
+    top: 30px;
+    border-radius: .3rem;
+    border: 1px solid darken($secondary, 6.5%);
+    z-index: 10;
+
+    @media screen and (max-width: $break-xl) {
+      & {
+        display: block;
+        max-height: 750px;
+        overflow: auto;
+      }
+    }
+
+    .itemsGroup {
+
+      .groupHeader {
+        cursor: default;
+        width: 100%;
+        min-width: 150px;
+      }
+      
+      .item {
+        width: 100%;
+        min-width: 150px;
+
+        &:hover {
+          background-color: lighten($primary, 39.5%);
+        }
+      }
+
+      .selectedItem {
+        background-color: lighten($primary, 39.5%);
+      }
+    }
+  }
+}

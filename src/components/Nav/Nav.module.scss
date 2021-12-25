@@ -1,0 +1,76 @@
+@import "../../scss/config";
+
+.container {
+  height: 9vh;
+
+  .field {
+    border-radius: 0.3rem 0 0 0.3rem;
+  }
+
+  .navToggler {
+    padding: 5px;
+    cursor: pointer;
+    background: none;
+
+    & .navBurger:nth-child(1) {
+      width: 21px;
+    }
+
+    & .navBurger:nth-child(3) {
+      width: 17px;
+    }
+
+    .navBurger {
+      display: block;
+      width: 26px;
+      height: 3px;
+      border-radius: 10rem;
+      background-color: $muted;
+      margin: 6px 0;
+    }
+  }
+
+  .searchContainer {
+    background-color: lighten($primary, 39.5%);
+    height: 45px;
+    border-radius: 0 0.3rem 0.3rem 0;
+
+    &:hover {
+      background-color: lighten($primary, 38.5%);
+      transition: background-color 0.2s ease;
+    }
+  }
+
+  .navIcon {
+    width: 22px;
+    height: 22px;
+
+    path {
+      fill: $muted;
+    }
+  }
+
+  .navIconContainer {
+    height: 28px;
+  }
+
+  .flag {
+    width: 21px;
+    height: 21px;
+    object-fit: cover;
+    border: 1px solid $gray;
+  }
+
+  .userImg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .indicator {
+    height: 20px;
+    width: 20px;
+    font-size: 0.8rem;
+    top: 0;
+    right: -8px;
+  }
+}

@@ -1,0 +1,303 @@
+@import "../../scss/utilities";
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* three columns */
+  grid-template-areas:
+    "info info info"
+    "revenue revenue feed"
+    "calendar sales appointments"
+    "projects projects projects";
+
+  @media screen and (max-width: $break-xl) {
+    & {
+      grid-template-areas:
+        "info info info"
+        "revenue revenue feed"
+        "calendar calendar appointments"
+        "projects projects projects";
+    }
+  }
+
+  @media screen and (max-width: $break-lg) {
+    & {
+      grid-template-areas:
+        "info info info"
+        "revenue revenue revenue"
+        "feed feed feed"
+        "calendar calendar calendar"
+        "appointments appointments appointments"
+        "projects projects projects";
+
+      .info,
+      .revenue,
+      .feed,
+      .calendar,
+      .appointments,
+      .projects {
+        width: 100% !important;
+      }
+
+      .appointments,
+      .feed {
+        margin-left: 0px !important;
+      }
+    }
+  }
+
+  /* info */
+  .info {
+    grid-area: info;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    .infoItem {
+      height: 150px;
+      flex: 1;
+      overflow: hidden;
+
+      &:nth-child(1) {
+        background: lighten($primary, 36%);
+
+        & > div {
+          flex: 1;
+        }
+
+        p {
+          color: $primary;
+        }
+
+        span {
+          font-size: 16.85px;
+          color: lighten($primary, 1.5%);
+        }
+
+        img {
+          width: 100%;
+          max-width: 170px;
+          margin-bottom: -1.65rem;
+          margin-right: -1.65rem;
+        }
+      }
+    }
+
+    .infoCardIcon {
+      width: 60px;
+      height: 60px;
+      background: #e8f1fc;
+
+      svg path {
+        fill: #2579da;
+      }
+    }
+
+    @media screen and (max-width: 1280px) {
+      & {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media screen and (max-width: $break-sm) {
+      & {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  /* revenue */
+  .revenue {
+    grid-area: revenue;
+
+    :global(.recharts-wrapper) {
+      width: 100% !important;
+
+      svg {
+        width: 100%;
+      }
+    }
+
+    .rechartsContainer {
+      width: 100%;
+      min-height: 500px;
+
+      /* override recharts styles */
+      * {
+        font-family: "pt mono" !important;
+        font-weight: 600;
+        font-size: 14px;
+        color: $muted;
+
+        @media screen and (max-width: $break-xl) {
+          & {
+            font-size: 12.5px;
+          }
+        }
+      }
+
+      svg {
+        tspan {
+          color: #b4b4b4;
+        }
+      }
+    }
+  }
+
+  /* feed */
+  .feed {
+    grid-area: feed;
+
+    .feedImg {
+      width: 43px;
+      height: 43px;
+    }
+
+    .feedComment {
+      border: 1px solid $gray;
+    }
+  }
+
+  /* calendar */
+  .calendar {
+    grid-area: calendar;
+
+    .container {
+      /* overrride react calendar styles */
+      :global(.react-calendar) {
+        width: 100%;
+        border: none;
+        border-radius: 0.3rem;
+
+        :global(.react-calendar__month-view__weekdays) {
+          margin-bottom: 1.5rem;
+        }
+
+        :global(.react-calendar__month-view__days) {
+          row-gap: 2rem;
+        }
+
+        :global(.react-calendar__month-view__weekdays__weekday) {
+          display: flex;
+          justify-content: center;
+        }
+
+        :global(.react-calendar__tile--active) {
+          border-radius: 0.2rem;
+
+          abbr {
+            color: $light !important;
+          }
+        }
+
+        :global(.react-calendar__month-view__weekdays__weekday) {
+          abbr {
+            text-decoration: none;
+          }
+        }
+      }
+
+      * {
+        font-family: "pt mono" !important;
+        font-weight: 600 !important;
+        font-size: 14.45px;
+        color: $muted;
+
+        @media screen and (max-width: $break-xl) {
+          & {
+            font-size: 12.5px;
+          }
+        }
+      }
+    }
+  }
+
+  /* sales */
+  .sales {
+    grid-area: sales;
+
+    .salesTable {
+      tr td:nth-child(1) {
+        text-transform: capitalize;
+      }
+      td {
+        letter-spacing: 0.225px;
+      }
+
+      th,
+      td {
+        padding: 13.5px 0px;
+        border-bottom: 1px solid $gray;
+        height: 45px;
+      }
+    }
+  }
+
+  /* appointments */
+  .appointments {
+    grid-area: appointments;
+
+    .appsContainer {
+      &:before {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        height: 100%;
+        left: 9px;
+        background: lighten($primary, 20%);
+        width: 2px;
+      }
+
+      .app {
+        &:before {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          box-sizing: border-box;
+          left: -2rem;
+          top: 0;
+          border: 4px solid lighten($primary, 4%);
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          border-image: initial;
+          background: $light;
+        }
+
+        .appText {
+          line-height: 1.285;
+          letter-spacing: 0.125px;
+        }
+      }
+    }
+  }
+
+  /* projects */
+  .projects {
+    grid-area: projects;
+
+    .tableContainer {
+      overflow-x: auto;
+
+      table {
+        border: none;
+        border-collapse: collapse;
+        min-width: 695px;
+
+        tr td {
+          border-top: 1px solid $gray;
+        }
+
+        :global(tr.odd) {
+          background-color: lighten($primary, 39.5%);
+        }
+
+        :global(tr.even) {
+          background-color: $light;
+        }
+      }
+    }
+
+    :global(.border-primary) {
+      border: 1px solid lighten($primary, 25%);
+    }
+  }
+}

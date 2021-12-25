@@ -1,0 +1,59 @@
+@import "./config";
+@import "./utilities";
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Mono&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "work sans";
+  font-weight: 400;
+  color: $dark;
+}
+
+body,
+#root {
+  min-height: 100vh;
+  width: 100%;
+  height: fit-content;
+  background-color: lighten($primary, 39.5%);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input,
+textarea,
+button {
+  outline: none;
+  border: none;
+}
+
+input {
+  height: 45px;
+  background: lighten($primary, 39.5%);
+}
+
+button:disabled {
+  pointer-events: none;
+}
+
+.tag {
+  color: $primary;
+  background-color: #e8f1fc;
+}
+
+hr {
+  margin: 30px 13.5px;
+  border: none;
+  height: 1px;
+  width: 92%;
+  background-color: $gray;
+  pointer-events: none;
+}

@@ -1,0 +1,39 @@
+@import "../../scss/config";
+
+.container {
+  width: 260px;
+  min-width: 260px;
+  min-height: 100vh;
+  background-color: #293042;
+  transition: margin-left 0.45s ease;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #293042;
+    border-radius: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0.5rem;
+    border: 4px solid #293042;
+
+    &:hover {
+      background-color: #a5a5a5bf;
+    }
+  }
+
+  .header {
+    min-height: 9vh;
+  }
+
+  .item {
+    color: $gray;
+  }
+}

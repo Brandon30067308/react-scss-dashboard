@@ -1,0 +1,17 @@
+@import '../../../scss/config';
+
+.container {
+  .item {
+    color: $gray;
+  
+    // & .item:last-child {
+    //   padding-bottom: 0 !important;
+    // }
+  }
+  
+  .dropdownIcon {
+    path {
+      fill: $gray;
+    }
+  }
+}

@@ -1,0 +1,271 @@
+@import "./config";
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* flex directions */
+
+$flexdirections: ("row", "column", "row-reverse", "column-reverse");
+
+@each $d in $flexdirections {
+  .flex-#{$d} {
+    flex-direction: #{$d};
+  }
+}
+
+/* flex vertical & horizontal alignments */
+
+$flexalignments: ("flex-end", "flex-start", "center", "baseline", "space-between", "space-around");
+
+@each $a in $flexalignments {
+  .justify-#{$a} {
+    justify-content: #{$a};
+  }
+  .align-#{$a} {
+    align-items: #{$a};
+  }
+}
+
+/* text alignments */
+
+$textalignments: ("left", "center", "right");
+
+@each $t in $textalignments {
+  .text-align-#{$t} {
+    text-align: #{$t};
+  }
+}
+
+/* positions */
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* font-weights */
+
+$fontWeights: ("400", "500", "600");
+
+@each $w in $fontWeights {
+  .weight-#{$w} {
+    font-weight: #{$w};
+  }
+}
+
+/* font-sizes */
+
+$fontSizes: (
+  "xs": 13.75,
+  "sm": 14.75,
+  "md": 16.25,
+  "lg": 17.75,
+  "xl": 19,
+  "2xl": 21,
+  "3xl": 23,
+  "4xl": 25.5,
+  "5xl": 26.5,
+  "6xl": 28.5,
+);
+
+@each $name, $fontSize in $fontSizes {
+  .font-#{$name} {
+    font-size: clamp(#{0.85 * $fontSize}px, #{$fontSize}px, #{1.025 * $fontSize}px);
+  }
+}
+
+@function getNonZeroDigit($digit) {
+  @if ($digit == "0") {
+    @return "";
+  }
+  @return "-" + $digit;
+}
+
+/* spacings */
+
+$spaceamounts: ("0", "1", "2", "3", "4");
+
+@each $a in $spaceamounts {
+  .m-auto {
+    margin: auto;
+  }
+  .mx-auto {
+    margin-left: 0 auto;
+  }
+  .my-auto {
+    margin-left: auto 0;
+  }
+  $subspaceamounts: ("0", "15", "25", "35", "45", "5", "65", "75", "85");
+  @each $sa in $subspaceamounts {
+    /* margins */
+    .m-#{$a}#{getNonZeroDigit($sa)} {
+      margin: #{$a + "." + $sa}rem;
+    }
+    .mx-#{$a}#{getNonZeroDigit($sa)} {
+      margin-left: #{$a + "." + $sa}rem;
+      margin-right: #{$a + "." + $sa}rem;
+    }
+    .my-#{$a}#{getNonZeroDigit($sa)} {
+      margin-top: #{$a + "." + $sa}rem;
+      margin-bottom: #{$a + "." + $sa}rem;
+    }
+    .ml-#{$a}#{getNonZeroDigit($sa)} {
+      margin-left: #{$a + "." + $sa}rem;
+    }
+    .mr-#{$a}#{getNonZeroDigit($sa)} {
+      margin-right: #{$a + "." + $sa}rem;
+    }
+    .mt-#{$a}#{getNonZeroDigit($sa)} {
+      margin-top: #{$a + "." + $sa}rem;
+    }
+    .mb-#{$a}#{getNonZeroDigit($sa)} {
+      margin-bottom: #{$a + "." + $sa}rem;
+    }
+
+    /* paddings */
+    .p-#{$a}#{getNonZeroDigit($sa)} {
+      padding: #{$a + "." + $sa}rem;
+    }
+    .px-#{$a}#{getNonZeroDigit($sa)} {
+      padding-left: #{$a + "." + $sa}rem;
+      padding-right: #{$a + "." + $sa}rem;
+    }
+    .py-#{$a}#{getNonZeroDigit($sa)} {
+      padding-top: #{$a + "." + $sa}rem;
+      padding-bottom: #{$a + "." + $sa}rem;
+    }
+    .pl-#{$a}#{getNonZeroDigit($sa)} {
+      padding-left: #{$a + "." + $sa}rem;
+    }
+    .pr-#{$a}#{getNonZeroDigit($sa)} {
+      padding-right: #{$a + "." + $sa}rem;
+    }
+    .pt-#{$a}#{getNonZeroDigit($sa)} {
+      padding-top: #{$a + "." + $sa}rem;
+    }
+    .pb-#{$a}#{getNonZeroDigit($sa)} {
+      padding-bottom: #{$a + "." + $sa}rem;
+    }
+
+    /* flex & grid gaps */
+    .gap-#{$a}#{getNonZeroDigit($sa)} {
+      gap: #{$a + "." + $sa}rem;
+    }
+    .row-gap-#{$a}#{getNonZeroDigit($sa)} {
+      row-gap: #{$a + "." + $sa}rem;
+    }
+    .column-gap-#{$a}#{getNonZeroDigit($sa)} {
+      column-gap: #{$a + "." + $sa}rem;
+    }
+  }
+}
+
+/* colors */
+
+$colors: (
+  primary: $primary,
+  light: $secondary,
+  dark: $dark,
+  muted: $muted,
+  green: $green,
+  orange: $orange,
+  red: $red,
+);
+
+@each $color, $value in $colors {
+  /* text color */
+  .text-#{$color} {
+    color: $value;
+  }
+  /* icon(svg) fill */
+  .icon-#{$color} {
+    fill: $value;
+
+    path {
+      fill: $value;
+    }
+  }
+  /* bg colors */
+  .bg-#{$color} {
+    background-color: $value;
+  }
+}
+
+/* border radius */
+
+$radius: (
+  "xs": ".2rem",
+  "sm": ".3rem",
+  "md": ".5rem",
+  "lg": "10rem",
+  "full": "50%",
+);
+
+@each $r, $v in $radius {
+  .round-#{$r} {
+    border-radius: #{$v};
+  }
+}
+
+/* shadows */
+
+$shadows: (
+  sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+  md: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+  lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+  xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
+);
+
+@each $s, $v in $shadows {
+  .shadow-#{$s} {
+    box-shadow: #{$v};
+  }
+}
+
+/* width & height */
+
+$sizes: (
+  "100": "100%",
+  sm: "455px",
+  md: "980px",
+  lg: "1200px",
+);
+
+/* height & width */
+
+@each $size, $value in $sizes {
+  .h-#{$size} {
+    height: #{$value};
+  }
+  .w-#{$size} {
+    width: #{$value};
+  }
+  .max-w-#{$size} {
+    max-width: #{$value};
+  }
+  .min-w-#{$size} {
+    min-width: #{$value};
+  }
+  .max-h-#{$size} {
+    max-height: #{$value};
+  }
+  .min-h-#{$size} {
+    min-height: #{$value};
+  }
+}
+
+/* other utilities */
+
+.underline {
+  text-decoration: underline;
+}
+
+.pointer {
+  cursor: pointer;
+}
