@@ -15,7 +15,7 @@ export interface DropdownProps {
       action?: JSX.Element | string;
     };
     children?: (DropdownChild | string)[];
-  }
+  };
 }
 
 const Dropdown: FC<DropdownProps> = ({ item }) => {
@@ -24,9 +24,9 @@ const Dropdown: FC<DropdownProps> = ({ item }) => {
   return (
     <div className={`${DropdownStyles.container} w-100`}>
       <div
-        className="w-100">
+        className={`w-100 flex flex-column ${isOpen ? 'row-gap-1-35' : 'row-gap-0'}`}>
         <div
-          className={`pb-1-35 w-100 flex justify-space-between pointer`}
+          className={`w-100 flex justify-space-between pointer`}
           onClick={() => setIsOpen(!isOpen)}
         >
           <span
@@ -42,19 +42,21 @@ const Dropdown: FC<DropdownProps> = ({ item }) => {
             }}
           />
         </div>
-        <ul className="pl-0-75">
+        <ul
+          className="pl-0-75 flex flex-column w-100 row-gap-1-35 align-flex-start"
+          style={{ display: isOpen ? 'flex' : 'none' }}
+        >
           {
-            isOpen && item.children?.map((c, ci) => (
+            item.children?.map((c, ci) => (
               <li
                 key={`d-c-${ci}`}
-                className={`${DropdownStyles.item} font-md ${typeof c === 'string' ? 'pb-1-35' : 'pb-0'}`}
+                className={`${DropdownStyles.item} w-100 font-md`}
               >
                 {
                   typeof c === 'string' ?
-                    <a
-                      className={`${DropdownStyles.item} pointer font-md`}
-                      href="#"
-                    >{c}</a> :
+                    <span
+                      className={`${DropdownStyles.item} w-100 pointer font-md`}
+                    >{c}</span> :
                     <Dropdown
                       item={{
                         header: c.header,

@@ -1,14 +1,11 @@
-@import '../../../scss/config';
+@import "../../../scss/config";
 
 .container {
   .item {
+    display: block;
     color: $gray;
-  
-    // & .item:last-child {
-    //   padding-bottom: 0 !important;
-    // }
   }
-  
+
   .dropdownIcon {
     path {
       fill: $gray;

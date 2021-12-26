@@ -23,17 +23,18 @@
   &::-webkit-scrollbar-thumb {
     border-radius: 0.5rem;
     border: 4px solid #293042;
-
-    &:hover {
-      background-color: #a5a5a5bf;
-    }
+    background-color: #a5a5a5bf;
   }
 
   .header {
-    min-height: 9vh;
+    min-height: $nav-height;
   }
 
   .item {
     color: $gray;
+  }
+
+  .popup {
+    background-color: lighten(#293042, 5%);
   }
 }

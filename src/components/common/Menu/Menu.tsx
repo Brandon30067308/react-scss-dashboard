@@ -44,7 +44,7 @@ const Menu: FC<MenuProps> = ({ menuGroups, alt = false, showCaveat = true, class
 
   return (
     <div
-      className={`${MenuStyles.menu} flex column-gap-0-5 pointer relative ${classes}`}
+      className={`${MenuStyles.menu} flex column-gap-0-5 relative ${classes}`}
       style={style}
       tabIndex={0}
       onBlur={() => setIsOpen(false)}
@@ -105,9 +105,9 @@ const Menu: FC<MenuProps> = ({ menuGroups, alt = false, showCaveat = true, class
         }
       }}>
       {alt ?
-        <FontAwesomeIcon icon={faEllipsisH} className="icon-muted" /> :
+        <FontAwesomeIcon icon={faEllipsisH} className="icon-muted pointer" /> :
         <span
-          className="text-muted flex column-gap-0-35"
+          className="text-muted flex column-gap-0-35 pointer"
           style={{
             width: 'auto',
             minWidth: width >= breakpoints['xs'] ? '83px' : 'fit-content'

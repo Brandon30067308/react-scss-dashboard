@@ -76,7 +76,7 @@ const Projects: FC<ProjectsProps> = ({ projects }) => {
           </tbody>
         </table>
         <div className={`flex w-100 justify-space-between pt-1-5 px-1-25 
-          ${width <= breakpoints['sm'] && 'flex-column align-flex-start row-gap-0-45'}`}>
+          ${width <= breakpoints['sm'] ? 'flex-column align-flex-start row-gap-0-45' : 'column-gap-0-45'}`}>
           <span>{`Showing ${(entry.index * 6) + 1} to 
             ${projects.length >= ((entry.index + 1) * 6) ? ((entry.index + 1) * 6) : (projects.length)}
             of ${projects.length} entries`}</span>

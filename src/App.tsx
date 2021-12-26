@@ -19,18 +19,27 @@ function App() {
       }}
     >
       <Sidebar isOpen={isSidebarOpen} />
-      <div
-        className={`flex flex-column justify-flex-start h-100 w-100 ${width >= breakpoints['xs'] ?
-          'row-gap-2-5' : 'row-gap-1-25'}`}
-        style={{
-          minWidth: isSidebarOpen ?
-            width >= (breakpoints['lg'] + 260) ? 'unset' : '100%' :
-            '280px'
-        }}
-      >
-        <Nav isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
-        <Dashboard />
-        <Footer />
+      <div style={{
+        overflowX: isSidebarOpen ?
+          /*width >= breakpoints['sm'] ? 'unset' : */'auto' :
+          'unset'
+      }}>
+        <div
+          className={`flex flex-column justify-flex-start h-100 w-100 ${width >= breakpoints['xs'] ?
+            'row-gap-2-5' : 'row-gap-1-25'}`}
+          style={{
+            minWidth: isSidebarOpen ?
+              width >= (breakpoints['lg'] + 260) ? 'unset' : '100%' :
+              '280px',
+            width: isSidebarOpen ?
+              width >= (breakpoints['lg'] + 260) ? 'unset' : width :
+              '100%'
+          }}
+        >
+          <Nav isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
+          <Dashboard />
+          <Footer />
+        </div>
       </div>
     </div >
   );
