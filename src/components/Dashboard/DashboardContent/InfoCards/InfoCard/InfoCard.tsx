@@ -28,7 +28,7 @@ const InfoCard: FC<InfoCardProps> = ({ info: { value, name, rate, type, date } }
           </div>
         </div>
         <div className="flex justify-flex-start column-gap-0-85">
-          <Tag text={rate} />
+          <Tag numberOrText={rate} />
           <span className="text-sm text-muted">{date}</span>
         </div>
       </div>

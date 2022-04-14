@@ -30,7 +30,7 @@ const Appointments: FC<AppointmentsProps> = ({ appointmentsData: appData }) => {
                 <div className="w-100 flex justify-space-between">
                   <h3 className="font-md weight-500">
                     {i.title}</h3>
-                  <span className="text-muted font-sm">{i.timeDiff}</span>
+                  <span className="text-muted font-sm text-align-right">{i.timeDiff}</span>
                 </div>
                 <div className={`${DashboardStyles.appText} font-md`}>
                   {i.body}

@@ -14,7 +14,7 @@ const Feed: FC = () => {
       row-gap-1-25 justify-flex-start ${width >= breakpoints['xs'] ? 'p-1-15' : 'p-0-65'}`}>
       <header className="flex w-100 justify-space-between">
         <h3 className="font-xl weight-500 text-muted">Daily Feed</h3>
-        <div className="round-sm p-0-5 font-sm bg-primary text-light">Today</div>
+        <div className="round-sm p-0-5 font-sm bg-primary text-light w-fit text-align-center">Today</div>
       </header>
       {/* feeds container */}
       <div className="flex flex-column align-flex-start">

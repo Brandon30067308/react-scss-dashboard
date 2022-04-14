@@ -1,4 +1,4 @@
-@import '../../../scss/config';
+@import "../../../scss/config";
 
 .menu {
   outline: none;
@@ -6,13 +6,12 @@
   .icon {
     width: 12px;
     height: 12px;
-    transition: transform .25s ease;
+    transition: transform 0.25s ease;
   }
 
   .itemsContainer {
-    width: max-content;
     top: 30px;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
     border: 1px solid darken($secondary, 6.5%);
     z-index: 10;
 
@@ -25,13 +24,12 @@
     }
 
     .itemsGroup {
-
       .groupHeader {
         cursor: default;
         width: 100%;
         min-width: 150px;
       }
-      
+
       .item {
         width: 100%;
         min-width: 150px;

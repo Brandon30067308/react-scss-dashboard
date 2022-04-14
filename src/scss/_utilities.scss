@@ -18,7 +18,14 @@ $flexdirections: ("row", "column", "row-reverse", "column-reverse");
 
 /* flex vertical & horizontal alignments */
 
-$flexalignments: ("flex-end", "flex-start", "center", "baseline", "space-between", "space-around");
+$flexalignments: (
+  "flex-end",
+  "flex-start",
+  "center",
+  "baseline",
+  "space-between",
+  "space-around"
+);
 
 @each $a in $flexalignments {
   .justify-#{$a} {
@@ -76,7 +83,11 @@ $fontSizes: (
 
 @each $name, $fontSize in $fontSizes {
   .font-#{$name} {
-    font-size: clamp(#{0.85 * $fontSize}px, #{$fontSize}px, #{1.025 * $fontSize}px);
+    font-size: clamp(
+      #{0.85 * $fontSize}px,
+      #{$fontSize}px,
+      #{1.025 * $fontSize}px
+    );
   }
 }
 
@@ -155,13 +166,33 @@ $spaceamounts: ("0", "1", "2", "3", "4");
 
     /* flex & grid gaps */
     .gap-#{$a}#{getNonZeroDigit($sa)} {
-      gap: #{$a + "." + $sa}rem;
+      // gap: #{$a + "." + $sa}rem;
+      & > * {
+        margin-bottom: #{$a + "." + $sa}rem;
+        margin-right: #{$a + "." + $sa}rem;
+      }
+      & > *:last-child {
+        margin-bottom: 0 !important;
+        margin-right: 0 !important;
+      }
     }
     .row-gap-#{$a}#{getNonZeroDigit($sa)} {
-      row-gap: #{$a + "." + $sa}rem;
+      // row-gap: #{$a + "." + $sa}rem;
+      & > * {
+        margin-bottom: #{$a + "." + $sa}rem;
+      }
+      & > *:last-child {
+        margin-bottom: 0 !important;
+      }
     }
     .column-gap-#{$a}#{getNonZeroDigit($sa)} {
-      column-gap: #{$a + "." + $sa}rem;
+      // column-gap: #{$a + "." + $sa}rem;
+      & > * {
+        margin-right: #{$a + "." + $sa}rem;
+      }
+      & > *:last-child {
+        margin-right: 0 !important;
+      }
     }
   }
 }
@@ -232,9 +263,10 @@ $shadows: (
 
 $sizes: (
   "100": "100%",
-  sm: "455px",
-  md: "980px",
-  lg: "1200px",
+  "sm": "455px",
+  "md": "980px",
+  "lg": "1200px",
+  "fit": "fit-content",
 );
 
 /* height & width */
@@ -261,11 +293,6 @@ $sizes: (
 }
 
 /* other utilities */
-
-.underline {
-  text-decoration: underline;
-}
-
 .pointer {
   cursor: pointer;
 }

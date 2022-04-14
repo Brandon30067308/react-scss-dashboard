@@ -26,7 +26,11 @@
       height: 3px;
       border-radius: 10rem;
       background-color: $muted;
-      margin: 6px 0;
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -42,11 +46,10 @@
   }
 
   .navIcon {
-    width: 22px;
-    height: 22px;
-
-    path {
-      fill: $muted;
+    &,
+    & > *:nth-child(1) {
+      width: 22px;
+      height: 22px;
     }
   }
 
@@ -71,6 +74,6 @@
     width: 20px;
     font-size: 0.8rem;
     top: 0;
-    right: -8px;
+    right: -4px;
   }
 }
